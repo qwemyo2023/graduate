@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>category</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+.body{
+	font-family: 'Gaegu', cursive;
+}
+
+.jm-font{
+    font-family: 'Jeju Myeongjo', serif;
+}
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+.cat-wrapper{
+    width: 400px;
+    height: 850px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #f4f3f3;
+    border: max(2px, 0.1em) solid #f4f3f3;
+    border-radius: 25px;
+    position: absolute;
+    top: 15%;
+    left: 38%;
+    margin-bottom: 20px;
+    margin-top: 0%;
+    font-family: 'Gaegu', cursive;
+    text-align: left;
+    }
+.cat-wrapper >h1 {
+    font-size: 35px;
+    color:#F8F8F8;
+    background-color:  #60ce65;
+    margin-bottom: 10px;
+    margin-top: 0;
+    border: max(2px, 0.1em) solid #f4f3f3;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+}
+.cat-wrapper > h2{
+    font-size: 25px;
+    color:#F8F8F8;
+    background-color:  #ffe8da;
+    margin-bottom: 20px;
+    border: max(2px, 0.1em) solid #f4f3f3;
+    border-radius: 25px;
+    padding: 10px;
+}
+.cat-wrapper> h5{
+    font-size: 24px;
+    color: #1dad6a;
+    margin-bottom: 20px;
+    }
+
+a:link {
+  color : #a36d4c;
+  text-decoration: none;
+}
+a:visited {
+  color : #a36d4c;
+  text-decoration: none;
+}
+a:hover {
+  color : red;
+  text-decoration: underline;
+}
+a:active {
+  color : green;
+  text-decoration: none;
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+</head>
+<body><div class="cat-wrapper">
+    <h1>category</h1>
+    <h2><img class="icon" src="https://www.notion.so/icons/poultry_brown.svg"/><a href="{{url_for('gogilyu')}}">&gt; 고기류</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/plate-food_pink.svg"/><a href="{{url_for('gimchi')}}">&gt; 김치</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/fish_blue.svg"/><a href="{{url_for('haesanmul')}}">&gt; 해산물</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/leaf_green.svg"/><a href="{{url_for('yachaelyu')}}">&gt;야채 </a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/row_lightgray.svg"/><a href="{{url_for('tteog')}}">&gt; 떡</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/bowl-food_red.svg"/><a href="{{url_for('gug_tang')}}">&gt; 국/탕</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/pretzel_brown.svg"/><a href="{{url_for('milgalu')}}">&gt; 밀가루</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/bowl_lightgray.svg"/><a href="{{url_for('bab')}}">&gt; 밥</a></h2>
+    <h2><img class="icon" src="https://www.notion.so/icons/egg_yellow.svg"/><a href="{{url_for('gita')}}">&gt; 기타</a></h2>
+    </div>
+    <div></div>
+</body>
+</html>

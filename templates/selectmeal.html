@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+<style>
+*{
+padding: 0;
+margin: 0;
+border: none;
+}
+
+.select-wrapper{
+width: 400px;
+height: 750px;
+padding: 40px;
+box-sizing: border-box;
+background-color: #f4f3f3;
+border: max(2px, 0.1em) solid #f4f3f3;
+border-radius: 25px;
+margin: auto;
+position: absolute;
+top: 5%;
+left: 35%;
+margin-bottom: 20px;
+font-family: 'Gaegu', cursive;
+text-align: center;
+}
+.select-wrapper >h1 {
+font-size: 35px;
+color:#F8F8F8;
+background-color:  #57b980;
+margin-bottom: 10px;
+margin-top: 0;
+border: max(2px, 0.1em) solid #f4f3f3;
+border-radius: 25px;
+padding: 10px;
+text-align: center;
+}
+.select-wrapper >h2 {
+font-size: 30px;
+
+text-align: center;
+}
+.button-wrapper{
+width: 300px;
+height: 100px;
+padding: 40px;
+box-sizing: border-box;
+border: max(2px, 0.1em);
+border-color: #f4a460;
+border-radius: 25px;
+margin: auto;
+position: absolute;
+top: 25%;
+left: 10%;
+margin-bottom: 20px;
+font-family: 'Gaegu', cursive;
+text-align: center;
+}
+button {
+background-color: #f4a460;
+color: white; /* 텍스트 색상 지정 */
+padding: 10px 20px; /* 패딩 지정 */
+margin: 5px; /* 여백 지정 */
+border: none; /* 테두리 없음 */
+cursor: pointer; /* 커서 모양 변경 */
+font-family: 'Gaegu', cursive;
+font-size: 25px;
+}
+
+button:hover {
+background-color: #005A8D; /* 호버 시 배경색 변경 */
+}
+
+</style>
+
+</head>
+<body>
+<div class="select-wrapper">
+    <h1>저장할 시간대를<br>골라주세요!</h1>
+    <form method="POST" action="{{ url_for('save_data')}}">
+    <div class="button-wrapper">
+    <button type="submit" name="mealtime" value="아침">아침</button>
+    <button type="submit" name="mealtime" value="점심">점심</button>
+    <button type="submit" name="mealtime" value="저녁">저녁</button>
+    <button type="submit" name="mealtime" value="간식">간식</button>
+    </div>
+    <a href="{{url_for('MNCD_main1')}}">back to main</a>
+    </form>
+</div>
+
+</body>
+</html>

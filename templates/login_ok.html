@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 완료</title>
+<style>
+*{
+padding: 0;
+margin: 0;
+border: none;
+}
+body{
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
+margin: auto;
+text-align: center;
+}
+.sign_up-wrapper{
+        width: 400px;
+    height: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: auto;
+}
+.sign_up-wrapper > h2{
+    font-size: 30px;
+    color: #1dad6a;
+    margin-bottom: 20px;
+}
+.sign_up-wrapper> h5{
+    font-size: 24px;
+    color: #1dad6a;
+    margin-bottom: 20px;
+}
+#sign_up-form > input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+#sign_up-form > input::placeholder{
+    color: #D2D2D2;
+}
+#sign_up-form > input[type="submit"]{
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #1dad6a;
+    margin-top: 20px;
+}
+
+#sign_up-form > input[type="radio"]{
+appearance: none;
+border: max(2px, 0.1em) solid gray;
+border-radius: 50%;
+width: 1.25em;
+height: 1.25em;
+transition: border 0.5s ease-in-out;
+}
+#sign_up-form > input[type="radio"]:checked {
+  border: 0.4em solid #1dad6a;
+}
+
+#sign_up-form > input[type="radio"]:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) dotted #1dad6a;
+}
+
+#sign_up-form > input[type="radio"]:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+  cursor: pointer;
+}
+
+#sign_up-form > input[type="radio"]:hover + span {
+  cursor: pointer;
+}
+<!--global-->
+fieldset {
+  display: flex;
+  justify-content: center;
+  border: none;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+</style>
+</head>
+<body>
+<div class = sign_up-wrapper>
+                <h2>로그인 완료</h2>
+<a href="{{url_for('MNCD_main1')}}">back to main</a>
+
+</div>
+
+</body>
+</html>

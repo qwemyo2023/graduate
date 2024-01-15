@@ -1,0 +1,219 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>&gt;MNCD</title>
+<style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+.button {
+    background-color: #df9960dc; /* 배경색 */
+    border: none; /* 테두리 제거 */
+    color: white; /* 글꼴색 */
+    padding: 10px 20px; /* 안쪽 여백 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    text-decoration: none; /* 밑줄 제거 */
+    display: inline-block;
+    font-size: 16px; /* 글꼴 크기 */
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    border-radius: 8px; /* 버튼 둥글게 만들기 */
+    margin: 10px 0;
+    font-family: 'Gaegu', cursive;
+  font-size: 25px;
+  }
+
+  /* 버튼에 호버 효과 추가 (마우스를 올렸을 때) */
+.button:hover {
+    background-color: #45a049;
+  }
+.find-btn{
+	text-align: center;
+}
+.find-btn1{
+	display :inline-block;
+}
+.column-list {
+  display: flex; /* Flexbox를 사용하여 자식 요소들을 가로로 일직선으로 배치합니다. */
+  justify-content: space-between; /* 요소들을 좌우에 정렬하고 간격을 최대한 확보합니다. */
+  align-items: center; /* 요소들을 세로 가운데 정렬합니다. */
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+	border-radius: 25px;
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+	border-radius: 25px;
+
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+	border-radius: 25px;
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+	border-radius: 25px;
+}
+.main-wrapper{
+        width: 1000px;
+        height: auto;
+        padding: 40px;
+        box-sizing: border-box;
+        background-color: #f4f3f3;
+        border: max(2px, 0.1em) solid #f4f3f3;
+        border-radius: 25px;
+        margin: auto;
+        position: absolute;
+        top: 10%;
+        left: 18%;
+        margin-bottom: 20px;
+    }
+.main-wrapper > h1{
+    font-size: 18px;
+	margin-top: 1.25rem;
+    color: #1dad6a;
+    margin-bottom: 20px;
+	text-align: center;
+}
+.login-wrapper1 {
+	width: 350px;
+	height: 10px;
+    background-color: #1dad6a70;
+    border-radius: 25px;
+    border: max(2px, 0.1em) solid #1dad6aaf;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.topline1,
+.topline2,
+.topline3,
+.topline4 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: inline;
+    margin-right: 20px; /* 각 항목 사이의 간격을 조절합니다. */
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+h1 {
+    font-size: 1rem;
+	margin-top: 1.25rem;
+}
+.menu {
+width: 150px;
+overflow: hidden;
+position: absolute;
+top: 5px; /* 원하는 상단 위치 조절 */
+right: 10px; /* 원하는 우측 위치 조절 */
+text-align: center;
+border: max(2px, 0.1em) solid #f4f3f3;
+border-radius: 25px;
+font-family: 'Gaegu', cursive;
+font-size: 20px;
+}
+.menu > li {
+width: 100%;
+text-align: left;
+line-height: 10px;
+background-color: #1dad6a;
+list-style-type: none;
+}
+.menu a {
+color: #fff;
+text-decoration: none;
+list-style: none;
+}
+.submenu > li {
+line-height: 20px;
+background-color: #4acf91;
+text-decoration: none;
+text-align: left;
+padding-left:0%;
+list-style: none;
+}
+
+.submenu {
+height: 0;
+transition: height 0.5s;
+overflow: hidden;
+text-decoration: none;
+list-style-type: none;
+list-style: none;
+padding-left: 0%;
+}
+
+.menu > li:hover {
+background-color: #4acf91;
+transition-duration: 0.5s;
+}
+
+.menu > li:hover .submenu {
+height: 250px;
+transition-duration: 1s;
+}
+body{
+	font-family: 'Gaegu', cursive;
+  font-size: 20px;
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <ul class="menu">
+		<li>
+		  계정
+		  <ul class="submenu">
+        {% if email_response %}
+          <li>{{ ID }}
+            @{{ email_add }}</li>
+          <li><a href="{{url_for('logout')}}">로그아웃</a></li>
+          <li><a href="{{url_for('mypage')}}">마이페이지</a></li>
+
+        {% else %}
+          <li><a href="{{url_for('login')}}">로그인</a></li>
+          <li><a href="{{url_for('signup_form')}}">회원 가입</a></li>
+        {% endif %}
+      </ul>
+    </li>
+    </ul>
+<div class="main-wrapper">
+<div style="text-align : center;"><image src={{ url_for('static', filename="CSS/background/MNCD_LOGO.png") }}></image></div>
+<div>(My Nutrient Componet Diary)</div>
+<div class="column-list"><div id="9d354311-c788-4b06-9ac3-18c42b773275" style="width:33.333333333333336%" class="column"><h3 id="fd5c53c8-11c7-41f8-9944-0d0344f40f99" class="block-color-teal">소개</h3><figure id="8444c9f3-b21e-4f32-9c88-b7e307f759c4" class="block-color-teal_background link-to-page"><a href="{{url_for('MNCD_intro')}}"><span class="icon">🌅</span>&gt; MNCD에 대해서</a></figure></div><button class="button" style="font-size: 3em;" type="submit" value="Button" onclick="location.href='/category'">START!</button><div id="9d354311-c788-4b06-9ac3-18c42b773275" style="width:33.333333333333336%" class="column"><h3 id="91e7ed54-26fd-453c-bfde-96d276566475" class="block-color-blue">설명</h3><figure id="0682fe71-cc7f-4f9f-aba9-f282aa3442d1" class="block-color-blue_background link-to-page"><a href="{{url_for('foodexpl')}}"><img class="icon" src="https://www.notion.so/icons/checklist_gray.svg"/>&gt; 음식의 종류에 대해</a></figure></div></div><h1>start 버튼을 눌러<br>카테고리를 선택하고<br>음식 사진을 업로드하여<br>영양성분을 살펴보세요!</h1></div>
+<div>
+	<br>
+</div>
+
+</body></html>

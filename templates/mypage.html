@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mypage</title>
+<style>
+* {
+padding: 0;
+margin: 0;
+border: none;
+}
+body {
+font-size: 20px;
+margin: auto;
+text-align: center;
+display: flex; /* 수평 가운데 정렬을 위해 부모 컨테이너를 flex로 설정 */
+justify-content: center; /* 가로 방향으로 가운데 정렬 */
+align-items: center; /* 세로 방향으로 가운데 정렬 */
+height: 100vh; /* 화면 높이에 따라 컨테이너 높이 조절 */
+}
+
+.mypage-wrapper {
+width: 70%;
+height: auto;
+padding: 10%;
+box-sizing: border-box;
+background-color: #f4f3f3;
+border: max(2px, 0.1em) solid #f4f3f3;
+border-radius: 25px;
+position: absolute;
+top: 5%;
+left: 15%;
+font-family: 'Gaegu', cursive;
+text-align: center;
+float: left;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+.mypage-wrapper>h2 {
+font-size: 50px;
+color: #1dad6a;
+margin-bottom: 20px;
+}
+
+.mypage-wrapper>h5 {
+font-size: 24px;
+color: #1dad6a;
+margin-bottom: 20px;
+}
+.mypage-wrapper> h4{
+  color:#000000;
+  font-size: 25px;
+  text-align: center;
+  background-color: #f4a460;
+  border: max(2px, 0.1em) solid #000000;
+  border-radius: 25px;
+  width: 200px;
+  margin-bottom: 2%;
+  margin-top: 5%;
+}
+.runned_list{
+width: 700px;
+height: 500px;
+padding: 0;
+box-sizing: border-box;
+background-color: #f4f3f3;
+border: max(2px, 0.1em) solid #000000;
+border-radius: 25px;
+overflow: hidden;
+font-size: 25px;
+}
+.mypage-wrapper >h3{
+  color:#000000;
+  font-size: 25px;
+  text-align: center;
+  background-color: #f4a460;
+  border: max(2px, 0.1em) solid #000000;
+  border-radius: 25px;
+  width: 200px;
+  margin-left: 10%;
+  margin-bottom: 2%;
+  margin-right: 10%;
+}
+.uploaded_food-wrapper{
+width: 300px;
+padding: 0;
+box-sizing: border-box;
+background-color: #f4f3f3;
+border: max(2px, 0.1em) solid #000000;
+border-radius: 25px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+
+.uploaded_food_list{
+width: 500px;
+height: 800px;
+padding: 0;
+box-sizing: border-box;
+background-color: #f4f3f3;
+border: max(2px, 0.1em) solid #000000;
+border-radius: 25px;
+overflow: hidden;
+text-align: left;
+
+}
+.mainp_img{
+  margin: 10px 0;
+  border-radius: 25px;
+}
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, td {
+    border: 1px solid #dddddd; /* 선의 스타일 및 색상 설정 */
+    text-align: left;
+    padding: 1px;
+}
+
+th {
+    background-color: #f2f2f2; /* 헤더의 배경색 설정 */
+}
+#calc_on_mypage > input[type="submit"]{
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #1dad6a;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+#calc_on_mypage > input[type="radio"]{
+appearance: none;
+border: max(2px, 0.3em) solid gray;
+border-radius: 50%;
+width: 1.5em;
+height: 1.5em;
+transition: border 0.5s ease-in-out;
+}
+#calc_on_mypage > input[type="radio"]:checked {
+  border: max(2px, 0.3em) solid #1dad6a;
+}
+
+#calc_on_mypage > input[type="radio"]:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) dotted #1dad6a;
+}
+
+#calc_on_mypage > input[type="radio"]:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+  cursor: pointer;
+}
+
+#calc_on_mypage > input[type="radio"]:hover + span {
+  cursor: pointer;
+}
+.graph-container{
+  width: 600px;
+  height: 300px;
+  align-items: center;
+  text-align: center;
+  border: max(2px, 0.1em) solid #000000;
+}
+.chart-container {
+    width: 400px;
+    height: 80px;
+    background-color: #f4f3f3;
+    border: max(2px, 0.1em) solid #000000;
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+.bar1 {
+    background-color: #c694ff8d;
+    height: 100%;
+    width:0;
+    transition: width 1s;
+    border-radius: 25px;
+}
+.bar2{
+  background-color: #ff5656cf;
+    height: 100%;
+    width:0;
+    transition: width 1s;
+    border-radius: 25px;
+}
+
+.label_t {
+    text-align: center;
+    font-weight: bold;
+    padding-left: 5px;
+    width: 50px;
+    padding: 5%;
+}
+
+</style>
+</head>
+<body>
+<div class="mypage-wrapper"><image src={{ url_for('static', filename="CSS/background/MNCD_LOGO.png" ) }} class="mainp_img" style="width:300px; height:200px;" id="imglogo"></image>
+  <script>
+      document.getElementById("imglogo").addEventListener("click", function() {
+        window.location.href = "{{ url_for('MNCD_main1') }}";
+      });
+  </script>
+  <h2>MY PAGE</h2>
+  <h1>표준 체중</h1>
+  <p id="standard_w">{{ standard_w_value }} kg</p>
+  <h1>사용자의 필요 열량</h1>
+  <p>사용자의 하루 최소 필요 열량은 {{ calc_needk|default(0)|round(3) }} kcal입니다.</p>
+
+  <h3>최근 업로드한 음식</h3>
+  <table border = '' class = "table">
+  <thead>
+    <tr>
+      <th>음식</th>
+      <th>식사 시간</th>
+      <th>섭취량</th>
+      <th>칼로리</th>
+      <th>탄수화물</th>
+      <th>단백질</th>
+      <th>지방</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in record_list %}
+    <tr>
+      <td>{{ record[0] }}</td> {# 음식 이름 출력 #}
+      <td>{{ record[1] }}</td> {# 식사 시간 출력 #}
+      <td>{{ record[2] }}</td> {# 서빙 사이즈 출력 #}
+      <td>{{ record[3] }}</td> {# 칼로리 출력 #}
+      <td>{{ record[4] }}</td> {# 탄수화물 출력 #}
+      <td>{{ record[5] }}</td> {# 단백질 출력 #}
+      <td>{{ record[6] }}</td> {# 지방 출력 #}
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+  <br>
+  <h3>날짜별 Kcal 합산</h3>
+  <table border='1' class='table'>
+      <thead>
+          <tr>
+              <th>날짜</th>
+              <th>Kcal 합산</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for date, total_kcal in calc_t_k %}
+          <tr>
+              <td>{{ date }}</td>
+              <td>{{ total_kcal }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+    <br>
+  <h3>오늘 활동량에 따른 최소 필요 열량</h3>
+  <form method="post" action="{{ url_for('calc_on_mypage') }}" id="calc_on_mypage">
+    <input type="radio" name="activity_on_mypage" value="1" checked>가벼운 활동
+    <input type="radio" name="activity_on_mypage" value="2">중간 정도 활동
+    <input type="radio" name="activity_on_mypage" value="3">강한 활동
+    <input type="radio" name="activity_on_mypage" value="4">아주 강한 활동
+    <input id = "calc_btt" type="submit" value="calculate">
+</form>
+
+<p>{{cmp_on_mypage_v}}</p>
+<p>
+  <!-- #이미 리스트로 받아온 애들은(s1,r) 이거나 (s1,todays_total_v)으로 넘어간다. 그리고 정수나 소수였던 값은 앞선 파이썬 코드에서 문자열로 바꿨,,아 리스트로 바꿔야겠네 -->
+  <!-- 튜플 형태로 바꿔줬엉. 그럼 여기서는 튜플에 요소가 2개일 때, 1개일때로 나눠야 되는 거넹? 1일권장 칼로리를 땡만큼 넘었다가 1개. 나머지가 2개넹-->
+{% if cmp_on_mypage_v is defined and cmp_on_mypage_v is not none %}
+  {% if cmp_on_mypage_v|length == 1 %}
+    {% set cmp_on_mypage_v_0 = cmp_on_mypage_v %}
+    1일 권장 칼로리를 {{ cmp_on_mypage_v_0[0] }} kcal 넘으셨습니다
+  {% else %}
+    <!-- s1==cmp_on_mypage_v[0], r이나 ttv==cmp_on_mypage_v[1]-->
+    {% set cmp_on_mypage_v_0 = cmp_on_mypage_v[0] %}
+    {% set cmp_on_mypage_v_1 = cmp_on_mypage_v[1] %}
+    {% set done_kcal = cmp_on_mypage_v_0 - cmp_on_mypage_v_1 %}
+    {% if cmp_on_mypage_v[0] == cmp_on_mypage_v[1] %}
+      1일 권장 칼로리를 모두 섭취하셨습니다
+    {% else %}
+      1일 권장 칼로리의 양은 {{ cmp_on_mypage_v_0 }} 이며, {{ cmp_on_mypage_v_1 }} kcal 남았습니다
+      <div class="label_t">남은 열량</div>
+        <div class="chart-container">
+          <div class="bar1"style="width: {{ done_kcal }}%;">{{ done_kcal }}</div>
+          <div class="bar2"style="width: {{ cmp_on_mypage_v_1 }}%;">{{ cmp_on_mypage_v_1 }}</div>
+        </div>
+    {% endif %}
+  {% endif %}
+{% endif %}
+</p>
+</div>
+
+
+
+</body>
+</html>

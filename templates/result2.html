@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RESULT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+body{
+    font-size: 14px;
+    font-family: 'Gaegu', cursive;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+.re_foodname{
+    width: auto;
+    height: auto;
+    padding: auto;
+    box-sizing: border-box;
+    margin-top: 58%;
+}
+.re_foodname > h2{
+    font-size: 25px;
+}
+#re_foodname > input{
+    width: 30%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #EEE5E9;
+    width: 20%;
+    margin-right: 2%;
+}
+#re_foodname > input::placeholder{
+    color: #D2D2D2;
+}
+#re_foodname > input[type="submit"]{
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #1dad6a;
+    margin-top: 20px;
+    padding: 10px 20px;
+    width: 12%;
+    font-family: 'Gaegu', cursive;
+}
+.sign_up-wrapper{
+    width: 400px;
+    height: 800px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #f4f3f3;
+    border: max(2px, 0.1em) solid #f4f3f3;
+    border-radius: 25px;
+    margin: auto;
+    position: absolute;
+    top: 15%;
+    left: 37%;
+    margin-bottom: 20px;
+    font-family: 'Gaegu', cursive;
+    text-align: center;
+}
+.graph-wrapper{
+    width: 350px;
+    height: 550px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: max(2px, 0.1em) solid #000000;
+    border-radius: 25px;
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    left: 7%;
+    font-family: 'Gaegu', cursive;
+
+}
+    .sign_up-wrapper > h2{
+        font-size: 25px;
+        color:#F8F8F8;
+        background-color:  #1dad6a;
+        margin-bottom: 20px;
+        border: max(2px, 0.1em) solid #f4f3f3;
+        border-radius: 25px;
+        padding: 10px;
+        font-family: 'Gaegu', cursive;
+
+    }
+    .sign_up-wrapper> h5{
+        font-size: 24px;
+        color: #1dad6a;
+        margin-bottom: 20px;
+        font-family: 'Gaegu', cursive;
+
+    }
+    .test1{
+        width: 100%;
+        height: 160px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        border-radius: 6px;
+        background-color: #F8F8F8;
+        font-family: 'Gaegu', cursive;
+
+    }
+
+
+.chart-container {
+    width: 270px;
+    height: 60px;
+    background-color: #f4f3f3;
+    border: max(2px, 0.1em) solid #000000;
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+.bar1 {
+    background-color: #95d4fe;
+    height: 100%;
+    width:0;
+    transition: width 0.5s;
+    border-radius: 25px;
+}
+.bar2 {
+    background-color: #ffa9c78e;
+    height: 100%;
+    width:0;
+    transition: width 0.5s;
+    border-radius: 25px;
+}
+.bar3 {
+    background-color: #9ff9b88d;
+    height: 100%;
+    width:0;
+    transition: width 0.5s;
+    border-radius: 25px;
+}
+.bar4 {
+    background-color: #feae7c8d;
+    height: 100%;
+    width:0;
+    transition: width 0.5s;
+    border-radius: 25px;
+}
+.bar5 {
+    background-color: #c694ff8d;
+    height: 100%;
+    width:0;
+    transition: width 0.5s;
+    border-radius: 25px;
+}
+.label {
+    text-align: center;
+    font-weight: bold;
+    padding-left: 5px;
+  }
+.label_t {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+button{
+    background-color: #f4a460;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Gaegu', cursive;
+    font-size: 20px;
+    border-radius: 5px;
+    left: 35%;
+    margin-top: 1%;
+}
+button:hover {
+background-color: #005A8D;
+}
+
+</style>
+
+</head>
+<body>
+<button id="upload_food">MY PAGE에 업로드 하기</button>
+    <script>
+        // 버튼 클릭 시 링크로 이동
+        document.getElementById("upload_food").addEventListener("click", function() {
+          window.location.href = "{{ url_for('selectmeal') }}";
+        });
+    </script>
+    <div class="re_foodname"><h2>결과가 다른가요?<br>하단에 직접 음식명을 입력해주시면<br>해당 음식의 정보가 조희됩니다!</h2>
+        <form method="post" action="{{url_for('re_foodname')}}" id="re_foodname">
+        <input type="text" placeholder="조회할 음식이름" name="re_foodname"><input type="submit" value="음식이름 검색하기"></form></div>
+<div class = sign_up-wrapper>
+    <a href="{{url_for('MNCD_main1')}}">back to main</a>
+
+        <h2>  {{food_name}}의 정보  </h2>
+        <div>영양정보 확인하기</div>
+    <div class = graph-wrapper>
+    <div class="label_t">서빙사이즈</div>
+        <div class="chart-container">
+          <div class="bar4"style="width: {{ width_value4 }}%;"></div>
+          <div class="label">{{ width_value4 }} g</div>
+    </div>
+    <div class="label_t">열량</div>
+        <div class="chart-container">
+          <div class="bar5"style="width: {{ width_value5 }}%;"></div>
+          <div class="label">{{ width_value5 }} kcal</div>
+    </div>
+        <div class="label_t">탄수화물</div>
+      <div class="chart-container">
+        <div class="bar1"style="width: {{ width_value1 }}%;"></div>
+        <div class="label">{{ width_value1 }} g</div>
+      </div>
+      <div class="label_t">단백질</div>
+      <div class="chart-container">
+        <div class="bar2"style="width: {{ width_value2 }}%;"></div>
+        <div class="label">{{ width_value2 }} g</div>
+      </div>
+      <div class="label_t">지방</div>
+      <div class="chart-container">
+        <div class="bar3"style="width: {{ width_value3 }}%;"></div>
+        <div class="label">{{ width_value3 }} g</div>
+      </div>
+    </div>
+</body>
+</html>

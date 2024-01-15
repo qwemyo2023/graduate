@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+*{
+padding: 0;
+margin: 0;
+border: none;
+}
+body{
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
+margin: auto;
+text-align: center;
+}
+.sign_up-wrapper{
+    width: 550px;
+    height: 550px;
+    padding: 2%;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #f4f3f3;
+    border-radius: 25px;
+}
+.sign_up-wrapper > h2{
+    font-size: 30px;
+    color: #1dad6a;
+    margin-bottom: 20px;
+}
+.sign_up-wrapper> h5{
+    font-size: 24px;
+    color: #1dad6a;
+    margin-bottom: 20px;
+}
+#signup_ok > input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+#signup_ok > input::placeholder{
+    color: #D2D2D2;
+}
+#signup_ok > input[type="submit"]{
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #1dad6a;
+    margin-top: 20px;
+}
+
+#signup_ok > input[type="radio"]{
+appearance: none;
+border: max(2px, 0.3em) solid gray;
+border-radius: 50%;
+width: 1.5em;
+height: 1.5em;
+transition: border 0.5s ease-in-out;
+}
+#signup_ok > input[type="radio"]:checked {
+  border: max(2px, 0.3em) solid #1dad6a;
+}
+
+#signup_ok > input[type="radio"]:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) dotted #1dad6a;
+}
+
+#signup_ok > input[type="radio"]:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+  cursor: pointer;
+}
+
+#signup_ok > input[type="radio"]:hover + span {
+  cursor: pointer;
+}
+fieldset {
+  display: flex;
+  justify-content: center;
+  border: none;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class = sign_up-wrapper>
+  <h2>Join</h2>
+    <form method="post" action="{{url_for('signup_ok')}}" id="signup_ok">
+      <input type="text" placeholder="email" name="email"><br>
+      <input type="password1" placeholder="password1" name="password1"><br>
+      <input type="password2" placeholder="password2" name="password2"><br>
+      <input type="height" placeholder="height" name="height"><br><br>
+      <input type="radio" name ="activity" value="1" checked>가벼운 활동
+      <input type="radio" name ="activity" value="2">중증도 활동
+      <input type="radio" name ="activity" value="3">강한 활동
+      <input type="radio" name ="activity" value="4">아주 강한 활동
+      <br><br>
+      <input type="radio" name ="gender" value="M" checked>남
+      <input type="radio" name ="gender" value="F">여
+      <br>
+    <input type="submit" value="join">
+    </form>
+</div>
+</body>
+</html>

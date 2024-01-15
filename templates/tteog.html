@@ -1,0 +1,217 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>&gt; 떡류</title>
+<style>
+.sign_up-wrapper{
+	width: 800px;
+	height: 1500px;
+	padding: 40px;
+	box-sizing: border-box;
+	background-color: #f4f3f3;
+	border: max(2px, 0.1em) solid #f4f3f3;
+	border-radius: 25px;
+	margin: auto;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+}
+.graph-wrapper{
+	width: 350px;
+	height: 550px;
+	padding: 40px;
+	box-sizing: border-box;
+	background-color: #ffffff;
+	border: max(2px, 0.1em) solid #000000;
+	border-radius: 25px;
+	margin: auto;
+	position: absolute;
+	top: 25%;
+	left: 7%;
+}
+.sign_up-wrapper > h2{
+	font-size: 25   px;
+	color:#F8F8F8;
+	background-color:  #1dad6a;
+	margin-bottom: 20px;
+	border: max(2px, 0.1em) solid #f4f3f3;
+	border-radius: 25px;
+	padding: 10px;
+}
+.sign_up-wrapper> h5{
+	font-size: 24px;
+	color: #1dad6a;
+	margin-bottom: 20px;
+}
+
+body {
+	white-space: pre-wrap;
+	background-color:#c3c2c2;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+}
+
+img {
+	max-width: 100%;
+}
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	  }
+	}
+@page {
+	margin: 1in;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+.page-header-icon {
+	font-size: 40px;
+	margin: 10px 0;
+}
+
+.file-upload {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #5ae2a3;
+	color: #000000;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-top: 70%;
+}
+.submit-button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #dc8470;
+	color: #000000;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.uploaded-image {
+	max-width: 300px;
+	max-height: 200px;
+}
+
+.button {
+	background-color: #df9960dc;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 8px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	margin: 10px 0;
+}
+
+.button:hover {
+	background-color: #45a049;
+}
+.div-container {
+	margin: 10px 0;
+}
+.img_container{
+	width: 650px;
+	height: 550px;
+	padding: 40px;
+	box-sizing: border-box;
+	border: max(2px, 0.1em) solid #000000;
+	border-radius: 25px;
+	position: absolute;
+	top: 25%;
+	left: 10%;
+	max-width: 500px;
+	max-height: 500px;
+	overflow: hidden;
+}
+#loading {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	display: none;
+	opacity: 0.8;
+	background:white;
+	z-index: 99;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#loading > image{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+	display: none;
+}
+	</style>
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+		  const fileInput = document.getElementById("fileInput");
+		  fileInput.addEventListener("change", function(event) {
+			  const files = event.target.files;
+			  let fileInfo = "";
+			  for (let i = 0; i < files.length; i++) {
+				  const file = files[i];
+				  const objectURL = URL.createObjectURL(file);
+
+				  const imgElement = document.createElement("img");
+				  imgElement.src = objectURL;
+				  imgElement.addEventListener('load', () => {
+					  URL.revokeObjectURL(objectURL);
+				  });
+					fileInfo += imgElement.outerHTML;
+				  fileInfo += `<p>File name: ${objectURL}/${file.name}, File size: ${file.size} bytes</p>`;
+			  }
+			  document.getElementById("fileInfo").innerHTML = fileInfo;
+		  });
+	  });
+	</script>
+	</head>
+	<body>
+	<div class = sign_up-wrapper>
+	  <button class="button" type="submit" value="Button" onclick="location.href='/foodexpl_tteog'">떡 음식 종류 확인하기</button>
+	  <div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/row_lightgray.svg" width="100" height="100"/></div><h1 class="page-title">떡</h1>
+	  <h4>이미지를 업로드해주세요</h4>
+	  <form method="POST" id="tofilesubmit" enctype="multipart/form-data" action="{{ url_for('upload_done_tteog')}}">
+		<input type="file" id="fileInput" name="file" style="display: none;"/>
+		<div class="img_container"><div id="fileInfo"></div></div>
+		<label for="fileInput" class="file-upload">업로드 파일 선택</label>
+		<input id = "submit" type="submit" class="submit-button" value="제출"/>
+		</form>
+	</div>
+	<div id="loading">
+		<image src={{ url_for('static', filename="CSS/background/loading.gif" ) }} class="loading_gif"></image>
+	  </div>
+	  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	  $(document).ready(function(){
+		$('#loading').hide();
+
+		$('#tofilesubmit').submit(function(){
+			$('#loading').show();
+			  return true;
+		  });
+	  });
+	</script>
+	</body>
+	</html>
